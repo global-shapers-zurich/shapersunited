@@ -53,7 +53,7 @@
     image: {
       tError: 'The image <a href="%url%">#%curr%</a> could not be loaded.',
       titleSrc: function(item) {
-        return item.el.attr('title') || "Photo by <a href='https://www.kasparetter.com/' target='_blank'>Kaspar Etter</a>";
+        return item.el.attr('title');
       }
     },
     zoom: {
@@ -63,6 +63,11 @@
         return element.find('img');
       }
     }
+  });
+
+  // https://stackoverflow.com/questions/17180621/jquery-scroll-to-top-of-bootstrap-modal
+  $('.modal').on('shown.bs.modal', function () {
+    $(this).animate({ scrollTop: 0 });
   });
 
 })(jQuery); // End of use strict
